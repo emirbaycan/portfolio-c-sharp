@@ -1,0 +1,82 @@
+﻿@model Message
+
+<section id="contact" class="s-contact target-section">
+
+    <div class="overlay"></div>
+
+    <div class="row narrow section-intro">
+        <div class="col-full">
+            <h3>İletişim</h3>
+            <h1>@ViewBag.title</h1>
+            <p class="lead">@ViewBag.description</p>
+        </div>
+    </div>
+
+    <div class="row contact__main">
+
+        <div class="col-eight tab-full contact__form">
+            <form asp-controller="Message" asp-action="SendMessage" id="contactForm" method="post">
+                <fieldset>
+                    <div class="form-field">
+                        <input asp-for="NameSurname" type="text" id="contactName" placeholder="Ad Soyad" value="" minlength="2" required="" aria-required="true" class="full-width">
+                    </div>
+                    <div class="form-field">
+                        <input asp-for="Email" type="email" id="contactEmail" placeholder="E-Mail" value="" required="" aria-required="true" class="full-width">
+                    </div>
+                    <div class="form-field">
+                        <input asp-for="Subject" type="text" id="contactSubject" placeholder="Konu" value="" class="full-width">
+                    </div>
+                    <div class="form-field">
+                        <textarea asp-for="MessageDetail" id="contactMessage" placeholder="Mesaj" rows="10" cols="50" required="" aria-required="true" class="full-width"></textarea>
+                    </div>
+                    <div class="form-field">
+                        <button class="full-width btn--primary">Gönder</button>
+                        <div class="submit-loader">
+                            <div class="text-loader">Sending...</div>
+                            <div class="s-loader">
+                                <div class="bounce1"></div>
+                                <div class="bounce2"></div>
+                                <div class="bounce3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+            <!-- Mesaj gonderiminden sonra bilgi mesajinin gosterilecegi alan -->
+            <div id="infoMessageArea">
+
+            </div>
+          
+        </div>
+        
+            @await Component.InvokeAsync("ContactInfoComponentPartial")
+       
+    </div>
+</section>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // form gonderimi engelleniyor
+
+        var formData = new FormData(this);
+        fetch('/Message/SendMessage', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                var messageTag = document.getElementById('infoMessageArea');
+                if (data.success) {
+                    messageTag.innerHTML = '<div class="alert alert-success">Mesajınız başarıyla gönderildi.</div>';
+                } else {
+                    messageTag.innerHTML = '<div class="alert alert-danger">Mesaj gönderilirken bir hata oluştu!</div>';
+                }
+                this.reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('infoMessageArea').innerHTML = '<div class="alert alert-success">Hata Oluştu</div>';
+            });
+    });
+</script>

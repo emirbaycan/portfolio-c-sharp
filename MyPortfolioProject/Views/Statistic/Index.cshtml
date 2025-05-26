@@ -1,0 +1,22 @@
+﻿﻿
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">İstatistikler</h4>
+		
+		@await Component.InvokeAsync("_AdminStatisticFirst")
+
+		<div class="row">
+
+			@await Component.InvokeAsync("_AdminStatisticMessages")
+
+
+			@await Component.InvokeAsync("_AdminStatisticToDoList")
+			
+		</div>
+	</div>
+</div>

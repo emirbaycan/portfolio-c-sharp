@@ -1,0 +1,112 @@
+﻿﻿<div class="sidebar">
+    <div class="scrollbar-inner sidebar-wrapper">
+        <div class="user">
+            <div class="photo">
+                @if (ViewBag.userImageId is not null)
+                {
+                    <img src="~/images/@ViewBag.UserImage">
+                }
+                else
+                {
+                    <img src="~/icons/user-avatar-profile.png">
+                }
+            </div>
+            <div class="info">
+                <a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+                    <span>
+                        @ViewBag.NameSurname
+                        <span class="user-level">@ViewBag.UserName</span>
+                        <span class="caret"></span>
+                    </span>
+                </a>
+                <div class="clearfix"></div>
+
+                <div class="collapse in" id="collapseExample" aria-expanded="true" style="">
+                    <ul class="nav">
+                        <li>
+                            <a asp-controller="Profile" asp-action="Update">
+                                <span class="link-collapse">Ayarlar</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <ul class="nav">
+            <li class="nav-item">
+                <a asp-controller="Statistic" asp-action="Index">
+                    <i class="la la-bar-chart"></i>
+                    <p>İstatistikler</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Message" asp-action="Inbox">
+                    <i class="la la-envelope-o"></i>
+                    <p>Gelen Kutusu</p>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a asp-controller="ToDoList" asp-action="Index">
+                    <i class="la la-bell"></i>
+                    <p>Yapılacaklar</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="About" asp-action="Index">
+                    <i class="la la-info"></i>
+                    <p>Hakkımda</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Portfolio" asp-action="Index">
+                    <i class="la la-image"></i>
+                    <p>Portfolyo</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Experience" asp-action="ExperienceList">
+                    <i class="la la-suitcase"></i>
+                    <p>Deneyimlerim</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Skill" asp-action="Index">
+                    <i class="la la-star"></i>
+                    <p>Yeteneklerim</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Feature" asp-action="Index">
+                    <i class="la la-th"></i>
+                    <p>Öne Çıkan Alan</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Contact" asp-action="Index">
+                    <i class="la la-bell"></i>
+                    <p>İletişim Bilgileri</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="SocialMedia" asp-action="Index">
+                    <i class="la la-fonticons"></i>
+                    <p>Sosyal Medya</p>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a asp-controller="Testimonial" asp-action="Index">
+                    <i class="la la-thumbs-o-up"></i>
+                    <p>Referanslarım</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Default" asp-action="Index">
+                    <i class="la la-home"></i>
+                    <p>Siteye Git</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

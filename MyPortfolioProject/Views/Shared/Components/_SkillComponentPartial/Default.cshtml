@@ -1,0 +1,19 @@
+﻿@model List<Skill>
+
+<div class="col-six tab-full right">
+    <h3>İlgi Alanları & Yetenekler</h3>
+
+    <ul class="skill-bars">
+
+        @foreach (var item in Model)
+        {
+            // div class'inin yuzde kismini kullanicinin ekledigi skill yuzdesi kadar ayarliyoruz.
+            var percentage = item.Value.ToString();
+            var progressClass = "progress percent" + percentage;
+            <li>
+                <div class="@progressClass"><span>@item.Value%</span></div>
+                <strong>@item.Title</strong>
+            </li>
+        }
+    </ul>
+</div>
