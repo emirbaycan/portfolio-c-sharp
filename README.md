@@ -147,7 +147,7 @@ Ana sayfa genel görünüm:
 
 Her türlü öneri veya iş birliği için:
 
-* **Email**: [emir@emirbaycan.com.tr](mailto:emir@emirbaycan.com.tr)
+* **Email**: [emir-baycan@hotmail.com](mailto:emir-baycan@hotmail.com)
 * **Website**: [emirbaycan.com.tr](https://emirbaycan.com.tr)
 
 ---
