@@ -139,7 +139,7 @@ dotnet test
 
 Ana sayfa genel görünüm:
 
-![Full Page Screenshot](wwwroot/ProjectScreenShoots/full_page.png)
+![Full Page Screenshot](MyPortfolioProject/wwwroot/ProjectScreenShoots/full_page.png)
 
 ---
 
